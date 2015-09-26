@@ -42,22 +42,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Serial.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SerialSettings.cs">
+    <Compile Include="SerialSettingsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SerialSettings.Designer.cs">
-      <DependentUpon>SerialSettings.cs</DependentUpon>
+    <Compile Include="SerialSettingsDialog.Designer.cs">
+      <DependentUpon>SerialSettingsDialog.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="SerialSettings.resx">
-      <DependentUpon>SerialSettings.cs</DependentUpon>
+    <EmbeddedResource Include="SerialSettingsDialog.resx">
+      <DependentUpon>SerialSettingsDialog.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

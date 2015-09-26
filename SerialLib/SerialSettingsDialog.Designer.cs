@@ -1,6 +1,6 @@
 ﻿namespace SerialLib
 {
-    partial class SerialSettings
+    partial class SerialSettingsDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -32,8 +32,6 @@
             this.button_refresh = new System.Windows.Forms.Button();
             this.comboBox_ports = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBoxEncoder = new System.Windows.Forms.ComboBox();
             this.comboStopBits = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboParity = new System.Windows.Forms.ComboBox();
@@ -42,7 +40,10 @@
             this.comboDataBits = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBaudRate = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxEncoding = new System.Windows.Forms.ComboBox();
+            this.button_apply = new System.Windows.Forms.Button();
+            this.button_reset = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +54,7 @@
             this.groupBox1.Controls.Add(this.comboBox_ports);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(136, 126);
+            this.groupBox1.Size = new System.Drawing.Size(136, 91);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select Serial Port";
@@ -66,7 +67,7 @@
             this.button_refresh.TabIndex = 1;
             this.button_refresh.Text = "Refresh";
             this.button_refresh.UseVisualStyleBackColor = true;
-            this.button_refresh.Click += new System.EventHandler(this.button1_Click);
+            this.button_refresh.Click += new System.EventHandler(this.button_refresh_Click);
             // 
             // comboBox_ports
             // 
@@ -78,8 +79,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.comboBoxEncoder);
             this.groupBox2.Controls.Add(this.comboStopBits);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.comboParity);
@@ -90,52 +89,28 @@
             this.groupBox2.Controls.Add(this.comboBaudRate);
             this.groupBox2.Location = new System.Drawing.Point(154, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(134, 161);
+            this.groupBox2.Size = new System.Drawing.Size(158, 141);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Select parameters";
             // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 135);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
-            this.label6.TabIndex = 50;
-            this.label6.Text = "Encoding";
-            // 
-            // comboBoxEncoder
-            // 
-            this.comboBoxEncoder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxEncoder.FormattingEnabled = true;
-            this.comboBoxEncoder.Items.AddRange(new object[] {
-            "GB2312",
-            "UTF-8"});
-            this.comboBoxEncoder.Location = new System.Drawing.Point(62, 132);
-            this.comboBoxEncoder.Name = "comboBoxEncoder";
-            this.comboBoxEncoder.Size = new System.Drawing.Size(63, 21);
-            this.comboBoxEncoder.TabIndex = 49;
-            // 
             // comboStopBits
             // 
-            this.comboStopBits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboStopBits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboStopBits.FormattingEnabled = true;
             this.comboStopBits.Items.AddRange(new object[] {
             "1",
             "2",
             "1.5"});
-            this.comboStopBits.Location = new System.Drawing.Point(53, 105);
+            this.comboStopBits.Location = new System.Drawing.Point(64, 103);
             this.comboStopBits.Name = "comboStopBits";
             this.comboStopBits.Size = new System.Drawing.Size(72, 21);
             this.comboStopBits.TabIndex = 48;
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 108);
+            this.label5.Location = new System.Drawing.Point(6, 106);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 47;
@@ -143,7 +118,6 @@
             // 
             // comboParity
             // 
-            this.comboParity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboParity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboParity.FormattingEnabled = true;
             this.comboParity.Items.AddRange(new object[] {
@@ -152,16 +126,15 @@
             "EVEN",
             "MARK",
             "SPACE"});
-            this.comboParity.Location = new System.Drawing.Point(53, 49);
+            this.comboParity.Location = new System.Drawing.Point(64, 47);
             this.comboParity.Name = "comboParity";
             this.comboParity.Size = new System.Drawing.Size(72, 21);
             this.comboParity.TabIndex = 46;
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 24);
+            this.label2.Location = new System.Drawing.Point(6, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 41;
@@ -169,9 +142,8 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 52);
+            this.label4.Location = new System.Drawing.Point(6, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 45;
@@ -179,7 +151,6 @@
             // 
             // comboDataBits
             // 
-            this.comboDataBits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboDataBits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboDataBits.FormattingEnabled = true;
             this.comboDataBits.Items.AddRange(new object[] {
@@ -187,16 +158,15 @@
             "6",
             "7",
             "8"});
-            this.comboDataBits.Location = new System.Drawing.Point(53, 77);
+            this.comboDataBits.Location = new System.Drawing.Point(64, 75);
             this.comboDataBits.Name = "comboDataBits";
             this.comboDataBits.Size = new System.Drawing.Size(72, 21);
             this.comboDataBits.TabIndex = 44;
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 80);
+            this.label3.Location = new System.Drawing.Point(6, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 43;
@@ -204,48 +174,76 @@
             // 
             // comboBaudRate
             // 
-            this.comboBaudRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBaudRate.FormattingEnabled = true;
             this.comboBaudRate.Items.AddRange(new object[] {
-            "1200",
-            "2400",
-            "4800",
-            "7200",
             "9600",
-            "14400",
             "19200",
-            "28800",
             "38400",
             "57600",
             "115200",
-            "128000"});
-            this.comboBaudRate.Location = new System.Drawing.Point(53, 21);
+            "128000",
+            "500000"});
+            this.comboBaudRate.Location = new System.Drawing.Point(64, 19);
             this.comboBaudRate.Name = "comboBaudRate";
             this.comboBaudRate.Size = new System.Drawing.Size(72, 21);
             this.comboBaudRate.TabIndex = 42;
             // 
-            // button2
+            // label6
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(211, 187);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Apply";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 118);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.TabIndex = 50;
+            this.label6.Text = "Encoding";
             // 
-            // SerialSettings
+            // comboBoxEncoding
+            // 
+            this.comboBoxEncoding.FormattingEnabled = true;
+            this.comboBoxEncoding.Items.AddRange(new object[] {
+            "UTF-8",
+            "GB2312"});
+            this.comboBoxEncoding.Location = new System.Drawing.Point(70, 115);
+            this.comboBoxEncoding.Name = "comboBoxEncoding";
+            this.comboBoxEncoding.Size = new System.Drawing.Size(72, 21);
+            this.comboBoxEncoding.TabIndex = 49;
+            // 
+            // button_apply
+            // 
+            this.button_apply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_apply.Location = new System.Drawing.Point(237, 160);
+            this.button_apply.Name = "button_apply";
+            this.button_apply.Size = new System.Drawing.Size(75, 23);
+            this.button_apply.TabIndex = 2;
+            this.button_apply.Text = "Apply";
+            this.button_apply.UseVisualStyleBackColor = true;
+            this.button_apply.Click += new System.EventHandler(this.button_apply_Click);
+            // 
+            // button_reset
+            // 
+            this.button_reset.Location = new System.Drawing.Point(154, 160);
+            this.button_reset.Name = "button_reset";
+            this.button_reset.Size = new System.Drawing.Size(75, 23);
+            this.button_reset.TabIndex = 51;
+            this.button_reset.Text = "Reset";
+            this.button_reset.UseVisualStyleBackColor = true;
+            this.button_reset.Click += new System.EventHandler(this.button_reset_Click);
+            // 
+            // SerialSettingsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 222);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(324, 195);
+            this.Controls.Add(this.button_reset);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.comboBoxEncoding);
+            this.Controls.Add(this.button_apply);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "SerialSettings";
+            this.Name = "SerialSettingsDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Serial Port Settings";
             this.Load += new System.EventHandler(this.SerialSettings_Load);
@@ -253,6 +251,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -263,7 +262,7 @@
         private System.Windows.Forms.ComboBox comboBox_ports;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBoxEncoder;
+        private System.Windows.Forms.ComboBox comboBoxEncoding;
         private System.Windows.Forms.ComboBox comboStopBits;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboParity;
@@ -272,6 +271,7 @@
         private System.Windows.Forms.ComboBox comboDataBits;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBaudRate;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_apply;
+        private System.Windows.Forms.Button button_reset;
     }
 }
