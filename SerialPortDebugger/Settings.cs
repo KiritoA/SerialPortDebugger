@@ -1,4 +1,4 @@
-﻿namespace SerialDebugger.Properties {
+﻿namespace SerialPortDebugger.Properties {
     
     
     // 通过此类可以处理设置类的特定事件:

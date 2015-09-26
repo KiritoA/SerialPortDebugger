@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SerialDebugger
+namespace SerialPortDebugger
 {
     static class Program
     {
@@ -14,7 +14,18 @@ namespace SerialDebugger
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            MainForm w;
+            w = new MainForm();
+            
+            DateTime dt = System.IO.File.GetLastWriteTimeUtc(Application.ExecutablePath);
+            w.Text = "Serial Port Debugger - Version: " + dt.ToString("ddd MMM d H:mm:ss UTC yyyy");
+
+            if(w.openSerialSettings() == DialogResult.OK)
+            {
+                Application.Run(w);
+            }
+            
         }
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SerialDebugger.Properties {
+namespace SerialPortDebugger.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -56,66 +56,6 @@ namespace SerialDebugger.Properties {
             }
             set {
                 this["SendNewLine"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM1")]
-        public string PortName {
-            get {
-                return ((string)(this["PortName"]));
-            }
-            set {
-                this["PortName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
-        public int BaudRate {
-            get {
-                return ((int)(this["BaudRate"]));
-            }
-            set {
-                this["BaudRate"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int StopBits {
-            get {
-                return ((int)(this["StopBits"]));
-            }
-            set {
-                this["StopBits"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Parity {
-            get {
-                return ((int)(this["Parity"]));
-            }
-            set {
-                this["Parity"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
-        public int DataBits {
-            get {
-                return ((int)(this["DataBits"]));
-            }
-            set {
-                this["DataBits"] = value;
             }
         }
         
